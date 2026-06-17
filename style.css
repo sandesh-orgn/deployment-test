@@ -6,6 +6,16 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  /* Fallback for Windows High Contrast Mode */
+  color: #8b5cf6;
+}
+
+@media (forced-colors: active) {
+  .gradient-text {
+    -webkit-text-fill-color: unset;
+    background: none;
+    color: LinkText;
+  }
 }
 
 /* Skill card */

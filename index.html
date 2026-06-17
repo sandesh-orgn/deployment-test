@@ -279,6 +279,7 @@
           Whether you have a project in mind, a question, or just want to say hello — my inbox is
           always open.
         </p>
+        <div id="form-status" role="status" aria-live="polite" class="sr-only"></div>
         <form id="contact-form" class="bg-gray-900 rounded-2xl border border-gray-800 p-8 text-left space-y-5">
           <div>
             <label class="block text-sm font-medium text-gray-300 mb-1" for="name">Name</label>
@@ -368,11 +369,14 @@
       document.getElementById("contact-form").addEventListener("submit", (e) => {
         e.preventDefault();
         const btn = e.target.querySelector("button[type='submit']");
+        const status = document.getElementById("form-status");
         btn.textContent = "✅ Message Sent!";
         btn.disabled = true;
+        status.textContent = "Your message has been sent successfully.";
         setTimeout(() => {
           btn.textContent = "Send Message";
           btn.disabled = false;
+          status.textContent = "";
           e.target.reset();
         }, 3000);
       });
